@@ -6,6 +6,8 @@ var info = document.querySelector("#info");
 var degrees = "\u00b0";
 console.log("Hey there!")
 document.getElementById("html").style.backgroundImage = 'url("")'
+
+
 function setLocation(prevLocation) {
     myLocation = prompt("Please enter city name")
     if (myLocation === "") {
@@ -18,8 +20,7 @@ function setLocation(prevLocation) {
 }
 
 if (!(localStorage.getItem('location'))) {
-    setLocation();
-    //setPage();
+    navigator.geolocation.getCurrentPosition(success, error, options);
 } else {
     myLocation = localStorage.getItem('location')
     setPage(myLocation);
@@ -29,7 +30,6 @@ function setPage(myLocation, isGeo, latitude, longitude) {
     link = "https://api.openweathermap.org/data/2.5/weather?q=" + myLocation + "&units=metric&apikey=" + '499093abb9ae71e744766738f864d7d6';
     if (isGeo) {
         link = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&units=metric&appid=499093abb9ae71e744766738f864d7d6";
-        
     }
     fetch(link)
         .then((response) => {
@@ -64,6 +64,9 @@ function checkPresence(value, symbol) {
     }
 }
 
+//Geolocation API
+navigator.geolocation.getCurrentPosition(success, error, options);
+
 var options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -78,5 +81,3 @@ function success(pos) {
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
 }
-
-navigator.geolocation.getCurrentPosition(success, error, options);
