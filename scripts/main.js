@@ -29,6 +29,7 @@ function setPage(myLocation, isGeo, latitude, longitude) {
     link = "https://api.openweathermap.org/data/2.5/weather?q=" + myLocation + "&units=metric&apikey=" + '499093abb9ae71e744766738f864d7d6';
     if (isGeo) {
         link = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=499093abb9ae71e744766738f864d7d6";
+        
     }
     fetch(link)
         .then((response) => {
@@ -39,6 +40,7 @@ function setPage(myLocation, isGeo, latitude, longitude) {
             return response.json();
         })
         .then((myJson) => {
+            localStorage.setItem('location', myJson.name)
             document.querySelector("#weather_title").textContent = `Weather in ${myJson.name}`
             document.querySelector("#weather_head").textContent = `Weather in ${myJson.name}`
             myImg.setAttribute('src', `https://openweathermap.org/img/wn/${myJson.weather[0].icon}@2x.png`);
@@ -54,39 +56,12 @@ function setPage(myLocation, isGeo, latitude, longitude) {
         });
 }
 
-function fetchImg(url) {
-    url = addEmbed(document.querySelector('#insta_url').value)
-    console.log(url)
-    fetch(url)
-        .then((response) => {
-            if (response.status == 404) {
-                alert("Url invalid! (Private profiles not supported)")
-            }
-            return response.text();
-        }
-        ).then((page) => {
-            var parser = new DOMParser();
-            var fetchedDoc = parser.parseFromString(page, 'text/html');
-            var fetchedImg = fetchedDoc.documentElement.querySelector('.EmbeddedMediaImage');
-            var instaImg = fetchedImg.getAttribute('src')
-            document.querySelector("#guide").innerHTML = (`Right click below image and click 'Save image as...'`)
-            document.querySelector('#insta_image').setAttribute('src', instaImg)
-        })
-}
-
 function checkPresence(value, symbol) {
     if (value === undefined) {
         return (`(data unavailable)`)
     } else {
         return (`${value / 1000}${symbol}`)
     }
-}
-
-function addEmbed(url) {
-    let index = url.indexOf("?")
-    slicedUrl = url.slice(0, index)
-    newUrl = slicedUrl.concat("embed")
-    return newUrl
 }
 
 var options = {
