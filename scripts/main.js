@@ -28,7 +28,7 @@ if (!(localStorage.getItem('location'))) {
 function setPage(myLocation, isGeo, latitude, longitude) {
     link = "https://api.openweathermap.org/data/2.5/weather?q=" + myLocation + "&units=metric&apikey=" + '499093abb9ae71e744766738f864d7d6';
     if (isGeo) {
-        link = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=499093abb9ae71e744766738f864d7d6";
+        link = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&units=metric&appid=499093abb9ae71e744766738f864d7d6";
         
     }
     fetch(link)
