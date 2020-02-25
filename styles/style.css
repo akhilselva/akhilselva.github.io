@@ -2,6 +2,7 @@ html{
     font-size: 15px;
     font-family: 'Courier Prime', monospace;
     background-color: skyblue;
+    background-image: url("");
 }
 
 body{
@@ -10,6 +11,7 @@ body{
     border: 5px solid whitesmoke;
     padding: 20px 20px 20px 20px;
     background-color: orange;
+    text-align: center;
 }
 
 h1{
@@ -42,9 +44,15 @@ button{
 }
 
 footer{
+    text-align: left;
     font-size: x-small;
     font-style: italic;
     position: absolute;
-    bottom: 0.5%;
+    top: 0.5%;
     left: 0.5%;
+    z-index: -1;
+}
+
+button{
+    display: inline-block;
 }
