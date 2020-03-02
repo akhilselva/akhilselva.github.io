@@ -6,7 +6,7 @@ html{
 }
 
 body{
-    width: 500px;
+    width: auto;
     margin: 0 auto;
     border: 5px solid whitesmoke;
     padding: 20px 20px 20px 20px;
@@ -35,8 +35,9 @@ ul{
 }
 
 img {
-    display: block;
+    display: inline-block;
     margin: 0 auto;
+    
   }
 
 button{
@@ -55,4 +56,13 @@ footer{
 
 button{
     display: inline-block;
+}
+
+#insta_image{
+    height: 500px;
+    padding: 5px;
+}
+#insta_video{
+    height: 500px;
+    width: auto;
 }

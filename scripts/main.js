@@ -20,7 +20,7 @@ function setLocation(prevLocation) {
 }
 
 if (!(localStorage.getItem('location'))) {
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    getLoc();
 } else {
     myLocation = localStorage.getItem('location')
     setPage(myLocation);
@@ -67,7 +67,9 @@ function checkPresence(value, symbol) {
 }
 
 //Geolocation API
-navigator.geolocation.getCurrentPosition(success, error, options);
+function getLoc(){
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
 
 var options = {
     enableHighAccuracy: true,

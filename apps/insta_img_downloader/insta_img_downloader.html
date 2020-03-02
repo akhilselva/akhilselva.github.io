@@ -4,34 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Instagram image downloader</title>
-    <link rel="stylesheet" href="../../styles/style.css">
-    <script>
-        function fetchImg(url) {
-            url = addEmbed(document.querySelector('#insta_url').value)
-            fetch(url)
-                .then((response) => {
-                    if (response.status == 404) {
-                        alert("Url invalid! (Note: Private profiles not supported)")
-                    }
-                    return response.text();
-                }
-                ).then((page) => {
-                    var parser = new DOMParser();
-                    var fetchedDoc = parser.parseFromString(page, 'text/html');
-                    var fetchedImg = fetchedDoc.documentElement.querySelector('.EmbeddedMediaImage');
-                    var instaImg = fetchedImg.getAttribute('src')
-                    document.querySelector("#guide").innerHTML = (`Right click below image and click 'Save image as...'`)
-                    document.querySelector('#insta_image').setAttribute('src', instaImg)
-                })
-        }
-
-        function addEmbed(url) {
-            let index = url.indexOf("?")
-            slicedUrl = url.slice(0, index)
-            newUrl = slicedUrl.concat("embed")
-            return newUrl
-        }
-    </script>
+    <link type="text/css" rel="stylesheet" href="../../styles/style.css">
 </head>
 
 <body>
@@ -40,13 +13,15 @@
         placeholder="Eg., https://www.instagram.com/p/abcdefgh/?utm_source=ig_web_copy_link"
         style="width: 500px; text-align: center;">
     <br><br>
-    <button onclick="fetchImg()">Get image</button>
+    <!-- <button onclick="fetchImg()">Get image</button> -->
+    <button onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get image(s)</button>
+    <button onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get video</button><br><br>
     <button
         onclick="alert(`To get the url, go to desired post, click on ellipsis found on the top-right on the post and click on 'Copy Link'`)">Help</button>
+    <br><br>
+    <div id="result" style="font-size: small;"></div>
     <br>
-    <p id="guide" style="font-size: small;"></p>
-    <br>
-    <img id="insta_image" src="" width="500px" alt="instagram image will come here!">
+    <script src="scripts/insta.js"></script>
 </body>
 
 </html>
