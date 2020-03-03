@@ -66,3 +66,15 @@ button{
     height: 500px;
     width: auto;
 }
+
+@media only screen and (max-width: 600px) {
+    #insta_image{
+        height: auto;
+        width: 100%;
+        padding: 5px;
+    }
+    #insta_video{
+        height: auto;
+        width: 100%;
+    }
+  }

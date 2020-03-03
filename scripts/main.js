@@ -8,8 +8,8 @@ console.log("Hey there!")
 document.getElementById("html").style.backgroundImage = 'url("")'
 
 
-function setLocation(prevLocation) {
-    myLocation = prompt("Please enter city name")
+function setLocation(prevLocation, geoLocatioFaliure) {
+    if (!geoLocatioFaliure) { myLocation = prompt("Please enter city name") } else { myLocation = prompt("Fetching geolocation failed! Please enter location manually.") }
     if (myLocation === "") {
         setLocation();
     } else if (myLocation === null) {
@@ -67,7 +67,7 @@ function checkPresence(value, symbol) {
 }
 
 //Geolocation API
-function getLoc(){
+function getLoc() {
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
@@ -84,4 +84,5 @@ function success(pos) {
 
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
+    setLocation(undefined, true);
 }

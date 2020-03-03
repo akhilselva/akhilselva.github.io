@@ -2,7 +2,7 @@
 <html id="html">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram image downloader</title>
     <link type="text/css" rel="stylesheet" href="../../styles/style.css">
 </head>
@@ -10,8 +10,8 @@
 <body>
     <h1>Paste url below</h1>
     <input type="text" id="insta_url"
-        placeholder="Eg., https://www.instagram.com/p/abcdefgh/?utm_source=ig_web_copy_link"
-        style="width: 500px; text-align: center;">
+        placeholder="https://www.instagram.com/p/abcdefgh"
+        style="width: 80%; text-align: center;">
     <br><br>
     <!-- <button onclick="fetchImg()">Get image</button> -->
     <button onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get image(s)</button>
@@ -20,7 +20,6 @@
         onclick="alert(`To get the url, go to desired post, click on ellipsis found on the top-right on the post and click on 'Copy Link'`)">Help</button>
     <br><br>
     <div id="result" style="font-size: small;"></div>
-    <br>
     <script src="scripts/insta.js"></script>
 </body>
 
