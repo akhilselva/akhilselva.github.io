@@ -41,19 +41,25 @@ function fetchJson(url, isVideo) {
     }).then((myJson) => {
         //console.log(myJson)
         if (isVideo) {
-            result.innerHTML = ''
-            vidSrc = (myJson.graphql.shortcode_media.video_url)
-            var videoElement = document.createElement("video")
-            videoElement.id = "insta_video"
-            videoElement.controls=true
-            videoElement.autoplay=true
-            videoElement.loop=true
-            videoElement.width="500"
-            videoElement.preload="auto"
-            result.appendChild(videoElement)
-            var source=document.createElement("source")
-            source.src=vidSrc
-            document.getElementById("insta_video").appendChild(source)
+            if (myJson.graphql.shortcode_media.video_url!==undefined) {
+                result.innerHTML = ''
+                vidSrc = (myJson.graphql.shortcode_media.video_url)
+                var videoElement = document.createElement("video")
+                videoElement.id = "insta_video"
+                videoElement.controls=true
+                videoElement.autoplay=true
+                videoElement.loop=true
+                videoElement.width="500"
+                videoElement.preload="auto"
+                result.appendChild(videoElement)
+                var source=document.createElement("source")
+                source.src=vidSrc
+                document.getElementById("insta_video").appendChild(source)
+            }else{
+                result.innerHTML = ''
+                error=document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
+                document.querySelector("#result").appendChild(error)
+            }
         } else {
             try {
                 result.innerHTML = ''
