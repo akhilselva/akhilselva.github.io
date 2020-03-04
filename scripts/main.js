@@ -4,7 +4,6 @@ var location;
 var description = document.querySelector("#description");
 var info = document.querySelector("#info");
 var degrees = "\u00b0";
-console.log("Hey there!")
 document.getElementById("html").style.backgroundImage = 'url("")'
 
 
