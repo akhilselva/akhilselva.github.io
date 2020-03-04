@@ -7,8 +7,8 @@ var degrees = "\u00b0";
 document.getElementById("html").style.backgroundImage = 'url("")'
 
 
-function setLocation(prevLocation, geoLocatioFaliure) {
-    if (!geoLocatioFaliure) { myLocation = prompt("Please enter city name") } else { myLocation = prompt("Fetching geolocation failed! Please enter location manually.") }
+function setLocation(prevLocation, geoLocationFaliure) {
+    if (!geoLocationFaliure) { myLocation = prompt("Please enter city name") } else { myLocation = prompt("Fetching geolocation failed! Please enter location manually.") }
     if (myLocation === "") {
         setLocation();
     } else if (myLocation === null) {
@@ -83,5 +83,5 @@ function success(pos) {
 
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    setLocation(undefined, true);
+    setLocation(localStorage.getItem('location'), true);
 }
