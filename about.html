@@ -6,10 +6,18 @@
     <title> About Akhil Selvakumar</title>
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/favicon.js"></script>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- Load our React component. -->
+    <script async type="text/babel" src="scripts/like_button.js"></script>
 </head>
 
 <body>
-    <a id="home" href="index.html">Home</a>
+    <a id="time" href="index.html"></a>
     <h1>Hey there!</h1>
     <img id="insta_image" style="padding-bottom: 10px;padding-top: 10px;" src="images/akhil.jpg" alt=""><br>
     <button onclick="location.href='weather.html'">Check weather in your area</button><br><br>

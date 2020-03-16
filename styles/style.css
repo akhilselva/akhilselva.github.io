@@ -66,6 +66,14 @@ button{
     top: 10px;
 }
 
+#time{
+    font-size: x-small;
+    z-index: 2;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 #insta_image{
     height: 500px;
     padding: 5px;
