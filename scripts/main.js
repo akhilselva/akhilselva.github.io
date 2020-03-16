@@ -35,8 +35,12 @@ function setPage(myLocation, isGeo, latitude, longitude) {
     fetch(link)
         .then((response) => {
             if (response.status == 404) {
-                //alert("City not found!")
-                getLoc();
+                if (confirm("City not found! Use geolocation?")) {
+                    getLoc();
+                } else {
+                    
+                }
+                
             }
             return response.json();
         })
