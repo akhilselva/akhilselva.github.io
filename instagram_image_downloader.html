@@ -27,7 +27,7 @@
     <script type="text/javascript">
         const url = localStorage.getItem("url");
         const isVideo = JSON.parse(localStorage.getItem("isVideo"));
-        if (url !== 'null' && isVideo !== 'null') {
+        if (url !== 'null' && url!=='' && url!==null) {
             document.querySelector("#insta_url").setAttribute("value", url)
             fetchJson(url, isVideo);
         }
