@@ -11,18 +11,27 @@
 <body>
     <a id="home" href="index.html">Home</a>
     <h1>Paste url below</h1>
-    <input type="text" id="insta_url"
-        placeholder="https://www.instagram.com/p/abcdefgh"
+    <input type="text" id="insta_url" placeholder="https://www.instagram.com/p/abcdefgh"
         style="width: 80%; text-align: center;">
     <br><br>
     <!-- <button onclick="fetchImg()">Get image</button> -->
     <button onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get image(s)</button>
-    <button onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get video</button><br><br>
+    <button onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get video</button>
+    <button onclick="clearResult()">Clear</button>
+    <br><br>
     <button
         onclick="alert(`To get the url, go to desired post, click on ellipsis found on the top-right on the post and click on 'Copy Link'`)">Help</button>
     <br><br>
     <div id="result" style="font-size: small;"></div>
     <script src="scripts/insta.js"></script>
+    <script type="text/javascript">
+        const url = localStorage.getItem("url");
+        const isVideo = JSON.parse(localStorage.getItem("isVideo"));
+        if (url !== 'null' && isVideo !== 'null') {
+            document.querySelector("#insta_url").setAttribute("value", url)
+            fetchJson(url, isVideo);
+        }
+    </script>
 </body>
 
 </html>

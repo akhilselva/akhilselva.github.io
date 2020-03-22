@@ -26,7 +26,8 @@ function addEmbed(url) {
 }
 
 function fetchJson(url, isVideo) {
-
+    localStorage.setItem('url',url);
+    localStorage.setItem('isVideo', isVideo);
     if (url.indexOf("?") > -1) {
         url = url + "&__a=1"
     } else {
@@ -39,7 +40,6 @@ function fetchJson(url, isVideo) {
             return response.json();
         }
     }).then((myJson) => {
-        //console.log(myJson)
         if (isVideo) {
             if (myJson.graphql.shortcode_media.video_url!==undefined) {
                 result.innerHTML = ''
@@ -82,4 +82,10 @@ function fetchJson(url, isVideo) {
             }
         }
     })
+}
+
+function clearResult() {
+    document.querySelector('#result').innerHTML=''
+    localStorage.removeItem('url')
+    localStorage.removeItem('isVideo');
 }
