@@ -30,6 +30,11 @@ div{
     display: block;
 }
 
+div#info{
+    font-size: 25px;
+    display: block;
+}
+
 ul{
     list-style-type:none; width: auto;margin-left: auto;margin-right: auto;
 }
