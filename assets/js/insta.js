@@ -26,7 +26,7 @@ function addEmbed(url) {
 }
 
 function fetchJson(url, isVideo) {
-    localStorage.setItem('url',url);
+    localStorage.setItem('url', url);
     localStorage.setItem('isVideo', isVideo);
     if (url.indexOf("?") > -1) {
         url = url + "&__a=1"
@@ -41,23 +41,40 @@ function fetchJson(url, isVideo) {
         }
     }).then((myJson) => {
         if (isVideo) {
-            if (myJson.graphql.shortcode_media.video_url!==undefined) {
+            if (myJson.graphql.shortcode_media.video_url !== undefined) {
                 result.innerHTML = ''
                 vidSrc = (myJson.graphql.shortcode_media.video_url)
                 var videoElement = document.createElement("video")
                 videoElement.id = "insta_video"
-                videoElement.controls=true
-                videoElement.autoplay=true
-                videoElement.loop=true
-                videoElement.width="500"
-                videoElement.preload="auto"
+                videoElement.controls = true
+                videoElement.autoplay = true
+                videoElement.loop = true
+                videoElement.preload = "auto"
                 result.appendChild(videoElement)
-                var source=document.createElement("source")
-                source.src=vidSrc
+                var source = document.createElement("source")
+                source.src = vidSrc
                 document.getElementById("insta_video").appendChild(source)
-            }else{
+            } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
                 result.innerHTML = ''
-                error=document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
+                noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
+                for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
+                    console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url,vidCount);
+                    vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
+                    var videoElement = document.createElement("video")
+                    videoElement.id = "insta_video"
+                    videoElement.controls = true
+                    videoElement.autoplay = true
+                    videoElement.loop = true
+                    videoElement.preload = "auto"
+                    result.appendChild(videoElement)
+                    var source = document.createElement("source")
+                    source.src = vidSrc
+                    document.querySelectorAll("#insta_video")[vidCount].appendChild(source)
+                }
+            }
+            else {
+                result.innerHTML = ''
+                error = document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
                 document.querySelector("#result").appendChild(error)
             }
         } else {
@@ -85,7 +102,7 @@ function fetchJson(url, isVideo) {
 }
 
 function clearResult() {
-    document.querySelector('#result').innerHTML=''
+    document.querySelector('#result').innerHTML = ''
     localStorage.removeItem('url')
     localStorage.removeItem('isVideo');
 }

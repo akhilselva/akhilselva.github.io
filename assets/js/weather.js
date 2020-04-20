@@ -4,7 +4,6 @@ var location;
 var description = document.querySelector("#description");
 var info = document.querySelector("#info");
 var degrees = "\u00b0";
-document.getElementById("html").style.backgroundImage = 'url("")'
 
 
 function setLocation(prevLocation, geoLocationFaliure) {
@@ -52,7 +51,7 @@ function setPage(myLocation, isGeo, latitude, longitude) {
             description.textContent = `${myJson.main.temp}${degrees}C, ${myJson.weather[0].main}`
             info.innerHTML = (`Feels like ${myJson.main.feels_like}${degrees}C<br>
                             Minimum ${myJson.main.temp_min}${degrees}C, Maximum ${myJson.main.temp_max}${degrees}C<br>
-                            <br><hr width=30%><br>
+                            <hr>
                             Wind: ${myJson.wind.speed}m/s,${myJson.wind.deg}${degrees}<br>
                             Clouds: ${myJson.clouds.all}%<br>
                             Pressure: ${myJson.main.pressure}hPa<br>

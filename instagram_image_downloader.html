@@ -1,37 +1,106 @@
-<!DOCTYPE html>
-<html id="html">
+<!DOCTYPE HTML>
+<!--
+	Retrospect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html style="text-align: center;">
 
 <head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram image downloader</title>
-    <link type="text/css" rel="stylesheet" href=" styles/style.css">
-    <script src="scripts/favicon.js"></script>
+	<title>Instagram Downloader</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 
 <body>
-    <a id="home" href="index.html">Home</a>
-    <h1>Paste url below</h1>
-    <input type="text" id="insta_url" placeholder="https://www.instagram.com/p/abcdefgh"
-        style="width: 80%; text-align: center;">
-    <br><br>
-    <!-- <button onclick="fetchImg()">Get image</button> -->
-    <button onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get image(s)</button>
-    <button onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get video</button>
-    <button onclick="clearResult()">Clear</button>
-    <br><br>
-    <button
-        onclick="alert(`To get the url, go to desired post, click on ellipsis found on the top-right on the post and click on 'Copy Link'`)">Help</button>
-    <br><br>
-    <div id="result" style="font-size: small;"></div>
-    <script src="scripts/insta.js"></script>
-    <script type="text/javascript">
-        const url = localStorage.getItem("url");
-        const isVideo = JSON.parse(localStorage.getItem("isVideo"));
-        if (url !== 'null' && url!=='' && url!==null) {
-            document.querySelector("#insta_url").setAttribute("value", url)
-            fetchJson(url, isVideo);
-        }
-    </script>
+
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="index.html">Akhil Selvakumar</a></h1>
+		<a href="#nav">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="projects.html">Projects</a></li>
+			<li><a href="about.html">About</a></li>
+			<!-- <li><a href="elements.html">Elements</a></li> -->
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="container">
+
+			<header class="major special">
+				<h2>Instagram Downloader</h2>
+				<p>Download images and videos of your favorite celebrities' posts for your personal collection!<br>
+					Paste url below.</p>
+			</header>
+			<input style="align-self: center;text-align: center;" type="text" id="insta_url"
+				placeholder="https://www.instagram.com/p/abcdefgh" style="width: 80%; text-align: center;">
+			<div style="font-family: FontAwesome; display: inline;font-size: x-large" class="fa-question-circle"
+				onclick="alert(`To get the url, go to desired post, click on ellipsis found on the top-right on the post and click on 'Copy Link'`)">
+			</div>
+			<br><br>
+			<!-- <button onclick="fetchImg()">Get image</button> -->
+			<button class="button alt small" onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get
+				image(s)</button>
+			<button class="button alt small" onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get
+				video</button>
+			<br><br>
+			<button class="button alt small" onclick="clearResult()">Clear</button>
+			<br><br>
+			<div id="result"></div>
+
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="//fb.com/akhilselva" target="_blank" class="icon fa-facebook">
+						<span class="label">Facebook</span>
+					</a></li>
+				<li><a href="//in.linkedin.com/in/akhilselvakumar" target="_blank" class="icon fa-linkedin">
+						<span class="label">LinkedIn</span>
+					</a></li>
+					<li><a href="//github.com/akhilselva" target="_blank" class="icon fa-github">
+						<span class="label">LinkedIn</span>
+					</a></li>
+			</ul>
+			<ul class="copyright">
+				<!-- <li>&copy; Untitled.</li> -->
+				<li><a href="//akhilselva.github.io/">Home</a>.</li>
+				<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<!-- Scripts added by Akhil-->
+	<script src="assets/js/insta.js"></script>
+	<script type="text/javascript">
+		const url = localStorage.getItem("url");
+		const isVideo = JSON.parse(localStorage.getItem("isVideo"));
+		if (url !== 'null' && url !== '' && url !== null) {
+			document.querySelector("#insta_url").setAttribute("value", url)
+			fetchJson(url, isVideo);
+		}
+	</script>
+
 </body>
 
 </html>
