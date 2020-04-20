@@ -35,7 +35,7 @@
 	</nav>
 
 	<!-- Main -->
-	<section id="main" class="wrapper">
+	<section id="main" class="wrapper style3 special">
 		<div class="container">
 
 			<header class="major special">
@@ -50,12 +50,15 @@
 			</div>
 			<br><br>
 			<!-- <button onclick="fetchImg()">Get image</button> -->
-			<button class="button alt small" onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get
-				image(s)</button>
-			<button class="button alt small" onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get
-				video</button>
-			<br><br>
-			<button class="button alt small" onclick="clearResult()">Clear</button>
+			<ul class="actions">
+				<li><button class="button alt fit"
+						onclick="fetchJson(document.querySelector('#insta_url').value,false)">Get
+						image(s)</button></li>
+				<li><button class="button alt fit"
+						onclick="fetchJson(document.querySelector('#insta_url').value,true)">Get
+						video</button></li>
+				<li><button class="button alt fit" onclick="clearResult()">Clear</button></li>
+			</ul>
 			<br><br>
 			<div id="result"></div>
 
@@ -72,7 +75,7 @@
 				<li><a href="//in.linkedin.com/in/akhilselvakumar" target="_blank" class="icon fa-linkedin">
 						<span class="label">LinkedIn</span>
 					</a></li>
-					<li><a href="//github.com/akhilselva" target="_blank" class="icon fa-github">
+				<li><a href="//github.com/akhilselva" target="_blank" class="icon fa-github">
 						<span class="label">LinkedIn</span>
 					</a></li>
 			</ul>

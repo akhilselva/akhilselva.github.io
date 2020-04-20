@@ -46,12 +46,12 @@ function setPage(myLocation, isGeo, latitude, longitude) {
         .then((myJson) => {
             localStorage.setItem('location', myJson.name)
             document.querySelector("#weather_title").textContent = `Weather in ${myJson.name}`
-            document.querySelector("#weather_head").textContent = `Weather in ${myJson.name}`
+            document.querySelector("#weather_head").textContent = `${myJson.name}`
             myImg.setAttribute('src', `https://openweathermap.org/img/wn/${myJson.weather[0].icon}@2x.png`);
             description.textContent = `${myJson.main.temp}${degrees}C, ${myJson.weather[0].main}`
             info.innerHTML = (`Feels like ${myJson.main.feels_like}${degrees}C<br>
                             Minimum ${myJson.main.temp_min}${degrees}C, Maximum ${myJson.main.temp_max}${degrees}C<br>
-                            <hr>
+                            <hr color="white">
                             Wind: ${myJson.wind.speed}m/s,${myJson.wind.deg}${degrees}<br>
                             Clouds: ${myJson.clouds.all}%<br>
                             Pressure: ${myJson.main.pressure}hPa<br>
