@@ -19,6 +19,21 @@
 	width: 50%;
 	padding: 5px;
 }
+button:focus {
+	outline: none;
+  }
+
+@media only screen and (max-width: 992px) {
+    #insta_image{
+        height: auto;
+        width: 100%;
+        padding: 5px;
+    }
+    #insta_video{
+        height: auto;
+        width: 100%;
+    }
+  }
 
 /* Reset */
 
@@ -3636,7 +3651,7 @@
 		}
 
 	#header {
-		background: #07090c;
+		background: #1E2832;
 		color: rgba(255, 255, 255, 0.75);
 		cursor: default;
 		height: 3.25em;
@@ -3771,7 +3786,7 @@
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: #07090c;
+		background: #1E2832;
 		box-shadow: none;
 		color: #fff;
 		height: 100%;

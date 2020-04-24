@@ -7,7 +7,7 @@
 <html>
 
 <head>
-	<title>Generic - Retrospect by TEMPLATED</title>
+	<title>Projects</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -20,22 +20,17 @@
 
 	<!-- Header -->
 	<header id="header">
-		<h1><a href="index.html">Akhil Selvakumar</a></h1>
-		<a href="#nav">Menu</a>
 	</header>
 
 	<!-- Nav -->
 	<nav id="nav">
-		<ul class="links">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="projects.html">Projects</a></li>
-			<li><a href="about.html">About</a></li>
-			<!-- <li><a href="elements.html">Elements</a></li> -->
-		</ul>
 	</nav>
-	
+
 	<!-- One -->
 	<section id="one" class="wrapper style3 special">
+		<header>
+			<h2>Projects by me</h2>
+		</header>
 		<div class="inner">
 			<article class="feature left">
 				<span class="image"><img src="images/weather.jpg" alt="" /></span>
@@ -63,12 +58,15 @@
 				</div>
 			</article>
 			<hr color="white">
-			<p>Work projects</p>
+			<header>
+				<h2>Work projects</h2>
+			</header>
 			<article class="feature left">
 				<span class="image"><img src="images/performance.jpg" alt="" /></span>
 				<div class="content">
 					<h2>Javascript Performance</h2>
-					<p>A Node.js program that analyses and provides performance metrics of a particular Javascript code on the page.</p>
+					<p>A Node.js program that analyses and provides performance metrics of a particular Javascript code
+						on the page.</p>
 				</div>
 			</article>
 			<article class="feature right">
@@ -82,7 +80,8 @@
 				<span class="image"><img src="images/puppeteer.jpg" alt="" /></span>
 				<div class="content">
 					<h2>Test automation programs</h2>
-					<p>Various Javascript test automation programs based on <a href="//pptr.dev/" target="_blank">Puppeteer</a></p>
+					<p>Various Javascript test automation programs based on <a href="//pptr.dev/"
+							target="_blank">Puppeteer</a></p>
 				</div>
 			</article>
 			<article class="feature right">
@@ -97,24 +96,6 @@
 
 	<!-- Footer -->
 	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="//fb.com/akhilselva" target="_blank" class="icon fa-facebook">
-						<span class="label">Facebook</span>
-					</a></li>
-				<li><a href="//in.linkedin.com/in/akhilselvakumar" target="_blank" class="icon fa-linkedin">
-						<span class="label">LinkedIn</span>
-					</a></li>
-				<li><a href="//github.com/akhilselva" target="_blank" class="icon fa-github">
-						<span class="label">LinkedIn</span>
-					</a></li>
-			</ul>
-			<ul class="copyright">
-				<!-- <li>&copy; Untitled.</li> -->
-				<li><a href="//akhilselva.github.io/">Home</a>.</li>
-				<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
-			</ul>
-		</div>
 	</footer>
 
 	<!-- Scripts -->
@@ -123,6 +104,13 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script>
+		$(function () {
+			$("#header").load("assets/html/header.html");
+			$("#footer").load("assets/html/footer.html");
+			$("#nav").load("assets/html/nav.html");
+		});
+	</script>
 
 </body>
 

@@ -57,8 +57,8 @@ function fetchJson(url, isVideo) {
             } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
                 result.innerHTML = ''
                 noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
-                for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
-                    console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url,vidCount);
+                if(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url){for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
+                    console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount);
                     vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
                     var videoElement = document.createElement("video")
                     videoElement.id = "insta_video"
@@ -70,7 +70,7 @@ function fetchJson(url, isVideo) {
                     var source = document.createElement("source")
                     source.src = vidSrc
                     document.querySelectorAll("#insta_video")[vidCount].appendChild(source)
-                }
+                }}
             }
             else {
                 result.innerHTML = ''
@@ -103,6 +103,7 @@ function fetchJson(url, isVideo) {
 
 function clearResult() {
     document.querySelector('#result').innerHTML = ''
+    document.querySelector('#insta_url').value = ''
     localStorage.removeItem('url')
     localStorage.removeItem('isVideo');
 }
