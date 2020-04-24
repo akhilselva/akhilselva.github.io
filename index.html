@@ -1,19 +1,63 @@
-<!DOCTYPE html>
-<html id="html">
+<!DOCTYPE HTML>
+<!--
+	Retrospect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
 
 <head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhil Selvakumar</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <meta name="google-site-verification" content="LAKipx1FP5LoyG03dITn7ZDibN4-5CXY8YXlpD9YGIg" />
-    <script src="scripts/favicon.js"></script>
-    <script>console.log("Hey there!")</script>
+	<title>Akhil Selvakumar</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
 
-<body>
-    <h1>Hey there!</h1>
-    <button onclick="location.href='weather.html'">Check weather in your area</button><br><br>
-    <button onclick="location.href='instagram_image_downloader.html'">Instagram image downloader</button>
+<body class="landing">
+
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><a href="index.html">Hello there.</a></h1>
+		<a href="#nav">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+	</nav>
+
+	<!-- Banner -->
+	<section id="banner">
+		<img src="/images/akhil.jpg" alt="">
+		<h2>Akhil Selvakumar</h2>
+		<p>Software developer based in<br><img style="height: 1.7em;" src="images/india.png" title="India"></p>
+		<ul class="actions">
+			<li><a href="projects.html" class="button big alt">Learn More</a></li>
+		</ul>
+		<!-- <div class="container">
+			<p style="text-transform:initial;">Glad you're here! I am a software developer from based in Mumbai, India.</p>
+		</div> -->
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<script>
+		$(function () {
+			$("#footer").load("assets/html/footer.html");
+			$("#nav").load("assets/html/nav.html");
+		});
+	</script>
+
 </body>
 
 </html>
