@@ -41,25 +41,10 @@ function fetchJson(url, isVideo) {
         }
     }).then((myJson) => {
         if (isVideo) {
-            if (myJson.graphql.shortcode_media.video_url !== undefined) {
-                result.innerHTML = ''
-                vidSrc = (myJson.graphql.shortcode_media.video_url)
-                var videoElement = document.createElement("video")
-                videoElement.id = "insta_video"
-                videoElement.controls = true
-                videoElement.autoplay = true
-                videoElement.loop = true
-                videoElement.preload = "auto"
-                result.appendChild(videoElement)
-                var source = document.createElement("source")
-                source.src = vidSrc
-                document.getElementById("insta_video").appendChild(source)
-            } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
-                result.innerHTML = ''
-                noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
-                if(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url){for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
-                    console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount);
-                    vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
+            try {
+                if (myJson.graphql.shortcode_media.video_url !== undefined) {
+                    result.innerHTML = ''
+                    vidSrc = (myJson.graphql.shortcode_media.video_url)
                     var videoElement = document.createElement("video")
                     videoElement.id = "insta_video"
                     videoElement.controls = true
@@ -69,13 +54,35 @@ function fetchJson(url, isVideo) {
                     result.appendChild(videoElement)
                     var source = document.createElement("source")
                     source.src = vidSrc
-                    document.querySelectorAll("#insta_video")[vidCount].appendChild(source)
-                }}
-            }
-            else {
-                result.innerHTML = ''
-                error = document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
-                document.querySelector("#result").appendChild(error)
+                    document.getElementById("insta_video").appendChild(source)
+                } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
+                    result.innerHTML = ''
+                    noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
+                    if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url) {
+                        for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
+                            console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount);
+                            vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
+                            var videoElement = document.createElement("video")
+                            videoElement.id = "insta_video"
+                            videoElement.controls = true
+                            videoElement.autoplay = true
+                            videoElement.loop = true
+                            videoElement.preload = "auto"
+                            result.appendChild(videoElement)
+                            var source = document.createElement("source")
+                            source.src = vidSrc
+                            document.querySelectorAll("#insta_video")[vidCount].appendChild(source)
+                        }
+                    }
+                }
+                else {
+                    result.innerHTML = ''
+                    error = document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
+                    document.querySelector("#result").appendChild(error)
+                }
+            } catch (error) {
+                console.warn(error);
+                result.innerHTML = "<p>Error fetching video</p>"
             }
         } else {
             try {

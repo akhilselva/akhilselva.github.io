@@ -26,12 +26,6 @@
 
 	<!-- Nav -->
 	<nav id="nav">
-		<ul class="links">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="projects.html">Projects</a></li>
-			<li><a href="about.html">About</a></li>
-			<!-- <li><a href="elements.html">Elements</a></li> -->
-		</ul>
 	</nav>
 
 	<!-- Banner -->
@@ -49,24 +43,6 @@
 
 	<!-- Footer -->
 	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="//fb.com/akhilselva" target="_blank" class="icon fa-facebook">
-						<span class="label">Facebook</span>
-					</a></li>
-				<li><a href="//in.linkedin.com/in/akhilselvakumar" target="_blank" class="icon fa-linkedin">
-						<span class="label">LinkedIn</span>
-					</a></li>
-				<li><a href="//github.com/akhilselva" target="_blank" class="icon fa-github">
-						<span class="label">LinkedIn</span>
-					</a></li>
-			</ul>
-			<ul class="copyright">
-				<!-- <li>&copy; Untitled.</li> -->
-				<li><a href="#">Home</a>.</li>
-				<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
-			</ul>
-		</div>
 	</footer>
 
 	<!-- Scripts -->
@@ -75,6 +51,12 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script>
+		$(function () {
+			$("#footer").load("assets/html/footer.html");
+			$("#nav").load("assets/html/nav.html");
+		});
+	</script>
 
 </body>
 
