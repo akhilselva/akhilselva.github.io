@@ -3120,7 +3120,7 @@ button:focus {
 					}
 
 		.wrapper.style2 {
-			background-color: #1E2832;
+			background-color: #195190FF;
 			color: rgba(255, 255, 255, 0.75);
 		}
 
@@ -3275,7 +3275,7 @@ button:focus {
 			.wrapper.style2 .button {
 				background-color: #fff;
 				box-shadow: none;
-				color: #1E2832 !important;
+				color: #195190FF !important;
 			}
 
 				.wrapper.style2 input[type="submit"].icon:before,
@@ -3355,10 +3355,10 @@ button:focus {
 					}
 
 		.wrapper.style3 {
-			background-color: #1E2832;
+			background-color: #195190FF;
 			color: rgba(255, 255, 255, 0.75);
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../../images/pic11.jpg");
+			/* background-image: url("images/overlay.png"), url("../../images/pic11.jpg"); */
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: fixed;
@@ -3515,7 +3515,7 @@ button:focus {
 			.wrapper.style3 .button {
 				background-color: #fff;
 				box-shadow: none;
-				color: #1E2832 !important;
+				color: #195190FF !important;
 			}
 
 				.wrapper.style3 input[type="submit"].icon:before,
@@ -3653,7 +3653,7 @@ button:focus {
 		}
 
 	#header {
-		background: #1E2832;
+		background: #616247FF;
 		color: rgba(255, 255, 255, 0.75);
 		cursor: default;
 		height: 3.25em;
@@ -3788,7 +3788,7 @@ button:focus {
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: #1E2832;
+		background: #616247FF;
 		box-shadow: none;
 		color: #fff;
 		height: 100%;
@@ -3905,10 +3905,10 @@ button:focus {
 
 	#banner {
 		padding: 8em 0 6em 0;
-		background-color: #1E2832;
+		background-color: #195190FF;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		/* background-image: url("images/overlay.png"), url("../../images/banner.jpg"); */
 		background-size: cover;
 		text-align: center;
 	}
@@ -3949,7 +3949,7 @@ button:focus {
 		#banner .button {
 			background-color: #fff;
 			box-shadow: none;
-			color: #1E2832 !important;
+			color: #195190FF !important;
 		}
 
 			#banner input[type="submit"].icon:before,
@@ -4147,7 +4147,7 @@ button:focus {
 /* Footer */
 
 	#footer {
-		background-color: #1E2832;
+		background-color: #616247FF;
 		color: rgba(255, 255, 255, 0.75);
 		text-align: center;
 	}
@@ -4186,11 +4186,11 @@ button:focus {
 			-webkit-transition: color 0.2s ease-in-out;
 			-ms-transition: color 0.2s ease-in-out;
 			transition: color 0.2s ease-in-out;
-			color: #a5a9ad;
+			color: #ffffff;
 		}
 
 			#footer a:active, #footer a:focus, #footer a:hover {
-				color: #fff;
+				color: #000000;
 			}
 
 		#footer .inner {
