@@ -3360,6 +3360,7 @@ button:focus {
 			background-attachment: fixed;
 			background-image: url("images/overlay.png"), url("../../images/pic11.jpg");
 			background-size: cover;
+			background-repeat: no-repeat;
 		}
 
 			.wrapper.style3 input, .wrapper.style3 select, .wrapper.style3 textarea {
