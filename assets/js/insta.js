@@ -48,7 +48,7 @@ function fetchJson(url, isVideo) {
                     var videoElement = document.createElement("video")
                     videoElement.id = "insta_video"
                     videoElement.controls = true
-                    videoElement.autoplay = true
+                    videoElement.autoplay = false
                     videoElement.loop = true
                     videoElement.preload = "auto"
                     result.appendChild(videoElement)
@@ -56,33 +56,37 @@ function fetchJson(url, isVideo) {
                     source.src = vidSrc
                     document.getElementById("insta_video").appendChild(source)
                 } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
+                    console.log("here");
+                    var count=0
                     result.innerHTML = ''
                     noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
-                    if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url) {
-                        for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
-                            console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount);
+                    for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
+                        var itemIsVideo=myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.is_video
+                        if (itemIsVideo) {
+                            console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount,itemIsVideo);
                             vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
                             var videoElement = document.createElement("video")
                             videoElement.id = "insta_video"
                             videoElement.controls = true
-                            videoElement.autoplay = true
+                            videoElement.autoplay = false
                             videoElement.loop = true
                             videoElement.preload = "auto"
                             result.appendChild(videoElement)
                             var source = document.createElement("source")
                             source.src = vidSrc
-                            document.querySelectorAll("#insta_video")[vidCount].appendChild(source)
+                            document.querySelectorAll("#insta_video")[count].appendChild(source)
+                            count+=1
                         }
                     }
                 }
                 else {
                     result.innerHTML = ''
                     error = document.createTextNode("Invalid url! Perhaps it is a link to an image post?")
-                    document.querySelector("#result").appendChild(error)
+                    //document.querySelector("#result").appendChild(error)
                 }
             } catch (error) {
                 console.warn(error);
-                result.innerHTML = "<p>Error fetching video</p>"
+                //result.innerHTML = "<p>Error fetching video</p>"
             }
         } else {
             try {
