@@ -56,14 +56,13 @@ function fetchJson(url, isVideo) {
                     source.src = vidSrc
                     document.getElementById("insta_video").appendChild(source)
                 } else if (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length > 0) {
-                    console.log("here");
                     var count=0
                     result.innerHTML = ''
                     noOfVids = myJson.graphql.shortcode_media.edge_sidecar_to_children.edges.length
                     for (let vidCount = 0; vidCount < noOfVids; vidCount++) {
                         var itemIsVideo=myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.is_video
                         if (itemIsVideo) {
-                            console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount,itemIsVideo);
+                            //console.log(myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url, vidCount,itemIsVideo);
                             vidSrc = (myJson.graphql.shortcode_media.edge_sidecar_to_children.edges[vidCount].node.video_url)
                             var videoElement = document.createElement("video")
                             videoElement.id = "insta_video"
