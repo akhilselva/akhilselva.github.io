@@ -55,6 +55,9 @@
 		$(function () {
 			$("#footer").load("assets/html/footer.html");
 			$("#nav").load("assets/html/nav.html");
+			$.get("assets/html/favicon.html", function (favicon) {
+				$("head").append(favicon);
+			});
 		});
 	</script>
 
