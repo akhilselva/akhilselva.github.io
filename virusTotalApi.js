@@ -1,4 +1,4 @@
-const debug = true
+const debug = false
 
 if (!debug) {
     console.log = console.error = console.warn = function () { };
