@@ -10,6 +10,9 @@
 
 /* Added by Akhil */
 
+#displayImg{
+	border-radius: 50%;
+}
 #insta_image{
 	height: 50%;
 	width: 50%;
