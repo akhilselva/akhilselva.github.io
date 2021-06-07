@@ -1,0 +1,15 @@
+<button class="chatBox" onclick="openChat()">
+    <h1>💬</h1>
+</button>
+
+<div class="chat-popup" id="chatBox">
+    <form class="form-container" action="/thanks" method="POST">
+        <h1>Chat</h1><input class="chatInput" maxlength="50" type="text" placeholder="Name" name="name"
+            required="required" /><input class="chatInput" maxlength="50" type="email" placeholder="E-mail ID"
+            name="email" required="required" /><input class="chatInput" maxlength="50" type="text" placeholder="Subject"
+            name="subject" required="required" /><textarea class="chatInput" maxlength="1000" placeholder="Your message"
+            name="message" required="required"></textarea><button class="btn" type="submit"><span
+                class="material-icons"> send </span></button><button class="btn cancel" type="button"
+            onclick="closeChat()"><span class="material-icons"> close </span></button>
+    </form>
+</div>

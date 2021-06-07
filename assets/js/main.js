@@ -56,3 +56,11 @@
 	});
 
 })(jQuery);
+
+function openChat(){
+    document.getElementById('chatBox').style.display = 'block'
+}
+
+function closeChat(){
+    document.getElementById('chatBox').style.display = 'none'
+}
