@@ -11,6 +11,8 @@
 /* Added by Akhil */
 
 #displayImg {
+	width: 21%;
+	height: auto;
 	border-radius: 50%;
 }
 
@@ -1581,6 +1583,11 @@ form ul.actions {
 }
 
 @media screen and (max-width: 736px) {
+	#displayImg {
+		width: 100%;
+		height: auto;
+		border-radius: 50%;
+	}
 	form ul.actions {
 		margin-top: 2em;
 	}
@@ -3595,21 +3602,21 @@ button.chatBox {
 
 @keyframes shake {
 	0% {
-	  transform: translate(-3px) rotate(0deg);
+		transform: translate(-3px) rotate(0deg);
 	}
 	20% {
-	  transform: translate(3px) rotate(0deg);
+		transform: translate(3px) rotate(0deg);
 	}
 	40% {
-	  transform: translate(-3px) rotate(0deg);
+		transform: translate(-3px) rotate(0deg);
 	}
 	60% {
-	  transform: translate(3px) rotate(0deg);
+		transform: translate(3px) rotate(0deg);
 	}
 	80% {
-	  transform: translate(-3px) rotate(0deg);
+		transform: translate(-3px) rotate(0deg);
 	}
 	100% {
-	  transform: translate(3px) rotate(0deg);
+		transform: translate(3px) rotate(0deg);
 	}
-  }
+}
