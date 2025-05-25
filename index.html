@@ -1,94 +1,291 @@
-<!DOCTYPE HTML>
-<!--
-	Retrospect by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>Akhil Selvakumar</title>
-	<meta charset="utf-8" />
-	<meta name="google-site-verification" content="LAKipx1FP5LoyG03dITn7ZDibN4-5CXY8YXlpD9YGIg" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhil Selvakumar – Tech Lead Portfolio</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <style>
+    :root {
+      --primary: #007acc;
+      --bg: #f9f9f9;
+      --text: #333;
+      --card-bg: white;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-top: 2rem;
+    }
+
+    .job {
+      animation: slideIn 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .job:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .job:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .job:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #e0f3ff;
+      color: #005b8f;
+      padding: 4px 10px;
+      border-radius: 16px;
+      margin: 3px;
+      font-size: 0.85rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tags span:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2px 6px rgba(0, 91, 143, 0.2);
+    }
+
+    .card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .card a:hover {
+      transform: translateY(-2px);
+    }
+
+    .card a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .card a:hover::after {
+      width: 100%;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+      }
+
+      .card {
+        padding: 1.2rem;
+      }
+
+      .tags span {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+      }
+
+      .tags span {
+        margin: 2px;
+      }
+    }
+  </style>
 </head>
 
-<body class="landing">
+<body>
+  <div id="app" class="container">
+    <div class="card">
+      <h1>{{ name }}</h1>
+      <p><strong>{{ role }}</strong> | {{ location }}</p>
+      <p>{{ summary }}</p>
+    </div>
 
-	<!-- Header -->
-	<header id="header" class="alt">
-		<h1><a href="index.html">Hello there.</a></h1>
-		<a href="#nav">Menu</a>
-	</header>
+    <div class="card">
+      <h2 class="section-title">Experience</h2>
+      <div v-for="(job, index) in experience" :key="job.company" class="job">
+        <h3>{{ job.role }} – <a :href="`${job.link}`" target="_blank">{{ job.company }}</a></h3>
+        <p><em>{{ job.duration }}</em></p>
+        <ul>
+          <li v-for="point in job.responsibilities" :key="point">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
 
-	<!-- Nav -->
-	<nav id="nav">
-	</nav>
+    <div class="card">
+      <h2 class="section-title">Skills</h2>
+      <div class="tags">
+        <span v-for="skill in skills" :key="skill">{{ skill }}</span>
+      </div>
+    </div>
 
-	<!-- Banner -->
-	<section id="banner">
-		<img id="displayImg" src="/images/akhil.jpg" alt="">
-		<h2>Akhil Selvakumar</h2>
-		<p>Software developer based in<br><img style="height: 1.7em;" src="images/india.png" title="India"></p>
-		<ul class="actions">
-			<li><a href="projects.html" class="button big alt">Learn More</a></li>
-		</ul>
-		<!-- <div class="container">
-			<p style="text-transform:initial;">Glad you're here! I am a software developer from based in Mumbai, India.</p>
-		</div> -->
-	</section>
-	<!-- <section id="four" class="wrapper style3 special">
-		<div class="inner">
-			<header class="major narrow">
-				<h2>Get in touch</h2>
-				<p>Ipsum dolor tempus commodo adipiscing</p>
-			</header>
-			<form action="#" method="POST">
-				<div class="container 75%">
-					<div class="row uniform 50%">
-						<div class="6u 12u$(xsmall)">
-							<input name="name" placeholder="Name" type="text" />
-						</div>
-						<div class="6u$ 12u$(xsmall)">
-							<input name="email" placeholder="Email" type="email" />
-						</div>
-						<div class="12u$">
-							<textarea name="message" placeholder="Message" rows="4"></textarea>
-						</div>
-					</div>
-				</div>
-				<ul class="actions">
-					<li><input type="submit" class="alt" value="Submit" style="background-color: rgba(0, 255, 0, 0.5);" /></li>
-					<li><input type="reset" class="alt" value="Reset" style="background-color: rgba(255, 0, 0, 0.5);" /></li>
-				</ul>
-			</form>
-		</div>
-	</section> -->
+    <div class="card">
+      <h2 class="section-title">Contact</h2>
+      <p style="margin-top:1rem;">
+        You can reach me at <a href="mailto:akhilselva1997@gmail.com">akhilselva1997@gmail.com</a> or
+        <a href="https://linkedin.com/in/akhilselvakumar" target="_blank">LinkedIn</a>.
+      </p>
+    </div>
+  </div>
 
-	<!-- Footer -->
-	<footer id="footer">
-	</footer>
+  <script>
+    const { createApp } = Vue;
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
-	<script>
-		$(function () {
-			$("#footer").load("assets/html/footer.html");
-			$("#nav").load("assets/html/nav.html");
-			$.get("assets/html/favicon.html", function (favicon) {
-				$("head").append(favicon);
-			});
-		});
-	</script>
+    createApp({
+      data() {
+        return {
+          name: "Akhil Selvakumar",
+          role: "Senior Software Engineer (Tech Lead) at WebMD | Ex-Mastercard",
+          location: "Mumbai, India",
+          summary: "Full-stack engineer with 6+ years of experience building scalable platforms across fintech and health tech. Skilled in both frontend and backend, with hands-on leadership experience and a passion for clean architecture and mentoring teams.",
 
+          experience: [
+            {
+              company: "WebMD",
+              link: "https://doctor.webmd.com",
+              role: "Senior Software Engineer (Technical Lead)",
+              duration: "Nov 2023 – Present",
+              responsibilities: [
+                "Led a team of engineers to deliver features on doctor.webmd.com",
+                "Owned SEO, analytics, and cross-team performance efforts",
+                "Maintained 100% test coverage using Mocha, Chai, and Cypress",
+              ]
+            },
+            {
+              company: "Mastercard",
+              link: "https://www.finicity.com/",
+              role: "Software Engineer II",
+              duration: "Jul 2021 – Oct 2023",
+              responsibilities: [
+                "Built APIs and internal tools for Open Banking data",
+                "Led product pilot launch and automated 75% of QA workflows",
+              ]
+            },
+            {
+              company: "BrandLock",
+              link: "https://brandlock.io",
+              role: "Software Engineer",
+              duration: "Nov 2018 – Jul 2021",
+              responsibilities: [
+                "Developed a sales prospecting tool from scratch",
+                "Worked with AWS (S3, Redshift, CloudFront) and automation scripts",
+              ]
+            }
+          ],
+
+          skills: [
+            "Node.js", "JavaScript", "TypeScript", "Vue.js", "React.js", "Next.js",
+            "Express.js", "NestJS", "Postgres", "MongoDB", "Redis",
+            "Cypress", "Jest", "Puppeteer", "Chrome DevTools Protocol",
+            "HTML/CSS", "TailwindCSS", "Vite", "SOLR",
+            "Docker", "Kubernetes", "AWS", "GitHub Actions", "SEO"
+          ]
+        };
+      }
+    }).mount('#app');
+  </script>
 </body>
 
 </html>
